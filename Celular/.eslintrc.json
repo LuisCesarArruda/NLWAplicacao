@@ -21,8 +21,7 @@
   "rules": {
     "indent": [
       "error",
-      "tab",
-      
+      "tab"
     ],
     "linebreak-style": [
       "error",
@@ -35,8 +34,6 @@
     "semi": [
       "error",
       "always"
-    ],
-    "camelcase": "off"
-
+    ]
   }
 }

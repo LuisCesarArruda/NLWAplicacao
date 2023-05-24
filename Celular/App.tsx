@@ -5,11 +5,11 @@ import {
   useFonts,
   Roboto_400Regular,
   Roboto_700Bold,
-} from '@expo-google-fonts/roboto'
+} from '@expo-google-fonts/roboto';
 
 import{
   BaiJamjuree_700Bold,
-}from '@expo-google-fonts/bai-jamjuree'
+}from '@expo-google-fonts/bai-jamjuree';
 
 export default function App() {
   const [hasLoadedFonts] = useFonts({
@@ -22,9 +22,8 @@ export default function App() {
   if(!hasLoadedFonts){
     return null
   }
-
   return (
-    <View className='flex-1 items-center justify-center bg-gray-950'>
+    <View className='bg-gray-900'>
       <Text className=' text-5xl font-bold text-gray-50 font-title'>Rocketseat</Text>
       <StatusBar style="light" translucent />
     </View>
