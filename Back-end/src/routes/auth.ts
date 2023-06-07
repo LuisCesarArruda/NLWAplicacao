@@ -32,7 +32,7 @@ export async function authRoute(app: FastifyInstance) {
 		});
 
 		const userSchema = z.object({
-			id: z.string(),
+			id: z.number(),
 			login: z.string(),
 			name: z.string(),
 			avatar_url: z.string().url(),
@@ -40,24 +40,24 @@ export async function authRoute(app: FastifyInstance) {
 		});
 		const userInfo = userSchema.parse(userResponse.data);
         
-		/* error
-		let User = await prisma.user.findUnique({
-            where: {
-                githubId: userInfo.id
-            }
-        })
+		
+		let user = await prisma.user.findUnique({
+			where: {
+				gitId: userInfo.id,
+			}
+		});
         
 		if(user){
 			user = await prisma.user.create({
 				data: {
-					githubId: userInfo.id,
+					gitId: userInfo.id,
 					login: userInfo.login,
 					name: userInfo.name,
 					avatarUrl: userInfo.avatar_url,
 				}
 			});
 		}
-        */ 
+        
 		
 	});
 }
