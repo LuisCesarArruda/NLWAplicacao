@@ -47,7 +47,7 @@ export async function authRoute(app: FastifyInstance) {
 			}
 		});
         
-		if(user){
+		if(!user){
 			user = await prisma.user.create({
 				data: {
 					gitId: userInfo.id,
@@ -57,7 +57,17 @@ export async function authRoute(app: FastifyInstance) {
 				}
 			});
 		}
-        
-		
+		const token = app.jwt.sign({
+			name: user.name,
+			avatar: user.avatarUrl
+
+		},{
+			sub: user?.id,
+			expiresIn: "30 days",
+		}
+		);
+		return{
+			token,
+		};
 	});
 }
